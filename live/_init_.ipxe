@@ -11,7 +11,7 @@ item --key 0x08 back            Back to top menu...
 isset ${menu-default} && goto menu-timer ||
 choose selected ||
 iseq ${selected} back && exit
-chain --autofree ${selected}.ipxe || goto menu
+chain --autofree ${scripts-url}/live/${selected}.ipxe || goto menu
 
 :menu-timer
-choose --timeout ${menu-timeout} --default ${menu-default} selected && chain --autofree ${selected}.ipxe || exit
+choose --timeout ${menu-timeout} --default ${menu-default} selected && chain --autofree ${scripts-url}/live/${selected}.ipxe || exit
