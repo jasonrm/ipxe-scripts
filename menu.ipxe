@@ -12,9 +12,8 @@ item --key c config       Configure settings
 item shell                Drop to iPXE shell
 item reboot               Reboot computer
 item
-item --key x exit         Exit iPXE and continue BIOS boot
+item --key x _exit        Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto start
-set menu-timeout 0
-iseq ${selected} exit && exit ||
+iseq ${selected} _exit && exit ||
 chain --autofree ${scripts-url}/${selected}/_init_.ipxe || goto start
 goto start
