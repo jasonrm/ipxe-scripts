@@ -4,7 +4,7 @@ set menu-default live
 
 :start
 imgfree
-menu iPXE boot menu for ${initiator-iqn}
+menu iPXE boot menu
 item --gap --             ------------------------- Operating systems ------------------------------
 item --key l live         Live environments...
 item --gap --             ------------------------- Advanced options -------------------------------
