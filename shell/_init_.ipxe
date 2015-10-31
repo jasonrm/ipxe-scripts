@@ -1,0 +1,3 @@
+#!ipxe
+echo Type 'exit' to get the back to the menu
+shell

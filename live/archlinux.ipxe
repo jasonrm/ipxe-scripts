@@ -1,0 +1,7 @@
+#!ipxe
+cpuid --ext 29 && set arch x86_64 || set arch i686
+
+set base-url http://mirror.us.leaseweb.net/archlinux/iso/latest
+kernel ${base-url}/arch/boot/${arch}/vmlinuz archisobasedir=arch archiso_http_srv=${base-url}/ script=http://raw.githubusercontent.com/jasonrm/archiso-pxe/master/archiso-pxe.sh ip=dhcp cow_spacesize=2G raid=noautodetect
+initrd ${base-url}/arch/boot/${arch}/archiso.img
+boot

@@ -1,0 +1,17 @@
+#!ipxe
+set menu-timeout 5000
+set menu-default back
+
+:menu
+menu Live Environments
+item --key a archlinux          Boot (A)rch Linux
+item --key c coreos             Boot (C)oreOS
+item
+item --key 0x08 back            Back to top menu...
+isset ${menu-default} && goto menu-timer ||
+choose selected ||
+iseq ${selected} back && exit
+chain --autofree ${selected}.ipxe || goto menu
+
+:menu-timer
+choose --timeout ${menu-timeout} --default ${menu-default} selected && chain --autofree ${selected}.ipxe || exit

@@ -1,0 +1,20 @@
+#!ipxe
+set menu-timeout 5000
+set menu-default live
+
+:start
+imgfree
+menu iPXE boot menu for ${initiator-iqn}
+item --gap --             ------------------------- Operating systems ------------------------------
+item --key l live         Live environments...
+item --gap --             ------------------------- Advanced options -------------------------------
+item --key c config       Configure settings
+item shell                Drop to iPXE shell
+item reboot               Reboot computer
+item
+item --key x exit         Exit iPXE and continue BIOS boot
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto start
+set menu-timeout 0
+iseq ${selected} exit && exit
+chain --autofree ${selected}/_init_.ipxe || goto start
+goto start

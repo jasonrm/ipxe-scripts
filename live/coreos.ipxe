@@ -1,0 +1,7 @@
+#!ipxe
+cpuid --ext 29 && set arch amd64 || set arch i386
+
+set base-url http://stable.release.core-os.net/${arch}-usr/current
+kernel ${base-url}/coreos_production_pxe.vmlinuz cloud-config-url=http://example.com/pxe-cloud-config.yml
+initrd ${base-url}/coreos_production_pxe_image.cpio.gz
+boot
