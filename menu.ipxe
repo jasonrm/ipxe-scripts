@@ -15,6 +15,6 @@ item
 item --key x exit         Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto start
 set menu-timeout 0
-iseq ${selected} exit && exit
+iseq ${selected} exit && exit ||
 chain --autofree ${scripts-url}/${selected}/_init_.ipxe || goto start
 goto start
