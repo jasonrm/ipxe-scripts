@@ -5,6 +5,7 @@ set menu-default back
 :menu
 menu Live Environments
 item --key a archlinux          Boot (A)rch Linux
+item archlinux-i686          Boot (A)rch Linux (i686)
 item --key c coreos             Boot (C)oreOS
 item
 item --key 0x08 back            Back to top menu...
